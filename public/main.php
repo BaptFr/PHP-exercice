@@ -1,36 +1,49 @@
 <?php
 echo 'TEST  DOCKER affichage page';
 
-//représente résultat de tirage aléatoire
+//résultat tirage aléatoire par GM
 class Resultat_tirage {
-   public readonly string $type;
-   public function __constrcut(string $type)
-   {
+    public function __construct(
+    public string $type,
+    public string $resultat
+    //variable valeur ???
+    ){
        $acceptedTypes = ['Dé', 'Pièce', 'Deck'];
-         if (!in_array($type, $acceptedTypes)) {
+       $acceptedResultat = ['Réussite', 'Echec', 'Réussite critique', 'Fumble'];  
+        if (!in_array($this ->$type, $acceptedTypes)) {
               throw new \Exception("Type de tirage invalide");
-         }  
-   }
+        }  
+        if (!in_array($this ->$resultat, $acceptedResultat)) {
+            throw new \Exception("Résultat du tirage invlide");
+        }
+    }
 };
 
-//Tirage valeurs aléatoires
-readonly class Comportement_tirage{
+//Comportement tirage valeurs aléatoires
+class Comportement_tirage{
+    public function __construct (
+    )
+    $materiels = ['Dé', 'Pièce', 'Deck'];
+    array_rand($materiels, 1);
+    if array_rand() == null {
+        throw new \Exception(" ")
+    }
 
 };
 
 
-readonly class Dé {
+class Dé {
 
 
 }
 
-readonly class Pièce {
+class Pièce {
 
     
 }
 
 
-readonly class Deck {
+class Deck {
 
     
 }
