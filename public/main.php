@@ -3,33 +3,37 @@ echo 'TEST  DOCKER affichage page';
 
 //représente résultat de tirage aléatoire
 class Resultat_tirage {
-
-   public function get_resultat() {
-        return $this->resultat;
-    }
-    public function set_resultat($resultat) {
-        $this->resultat = $resultat;
-    }
+   public readonly string $type;
+   public function __constrcut(string $type)
+   {
+       $acceptedTypes = ['Dé', 'Pièce', 'Deck'];
+         if (!in_array($type, $acceptedTypes)) {
+              throw new \Exception("Type de tirage invalide");
+         }  
+   }
 };
 
 //Tirage valeurs aléatoires
-class Comportement_tirage{
+readonly class Comportement_tirage{
 
 };
 
-class Dé {
+
+readonly class Dé {
 
 
 }
-class Pièce {
+
+readonly class Pièce {
 
     
 }
-class Deck {
+
+
+readonly class Deck {
 
     
 }
+
+
 ?>
-
-
- 
